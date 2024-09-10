@@ -52,14 +52,14 @@ export default function Home() {
   })
   
   const creationPreviews = createAsync<CreationPreview[]>(async (previousPreviews) => {
-    console.log('before server function:', batchData().cursor)
+    console.log('before async function:', batchData().cursor)
 
     const result = await getBatch({
       cursor: batchData().cursor,
       targetAmount: batchData().targetAmount,
     })
 
-    console.log('after server function:', batchData().cursor)
+    console.log('after async function:', batchData().cursor)
 
     setNextCursor(result.nextCursor)
 
